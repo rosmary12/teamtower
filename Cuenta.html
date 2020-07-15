@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<head>
+	<title>Seguridad </title>
+	<style>
+		font-family: Century Gothic;
+	</style>
+</head>
+<body>
+	<form action="seguridad.php" method=post>
+		<div class="datos">
+			<font face="Century Gothic" size="">
+			<table width="60%" cellspacing="4" cellpadding="2" border="0">
+				<th colspan="4" bgcolor=""> PREGUNTAS DE SEGURIDAD </th>
+					<tr>
+							<td bgcolor="" width="180"><b> Deporte Favorito :</b></td>
+							<td bgcolor="#ccffff""><input type="text" maxlength="20" size="20" name="equipo"></td>  
+					</tr>
+					<tr>
+							<td bgcolor="" width="180"><b> Música Favorita :</b></td>
+							<td bgcolor="#ccffff""><input type="text" maxlength="20" size="20" name="musica"></td>  
+					</tr>
+					<tr>
+							<td bgcolor="" width="180"><b> Escritor Favorito :</b></td>
+							<td bgcolor="#ccffff""><input type="text" maxlength="20" size="20" name="escritor"></td>  
+					</tr>
+					<tr>
+							<td bgcolor="" width="100"><b> Nombre de Primer Mascota :</b></td>
+							<td bgcolor="#ccffff""><input type="text" maxlength="20" size="20" name="mascota"></td>
+					</tr>	
+					<tr>
+							<td bgcolor="" width="180"><b> Nombre de Primer Colegio :</b></td>
+							<td bgcolor="#ccffff""><input type="text" maxlength="30" size="20" name="colegio"></td>
+					</tr>
+					<tr>
+							<td bgcolor="" width="400"><b>Primer Nombre de Mama:</b></td>
+							<td bgcolor="#ccffff"><input type="text" maxlength="20" size="20" name="mama"></td>
+					</tr>
+			</table>
+			</font>	
+		</div>
+		<div class="resguardo">
+				<input type="submit" size="20px" class="boton" name="Resguardar" value="Resguardar Cuenta" /><br> <br>
+		</div>
+		
+			 
+	</form>
+
+
+	<form action="cgi-bin/mailto.cgi" method="post" enctype="application/x-www-form-urlencoded">
+		<label> Objeto de la Cuenta:</label>
+					<font face="Comic Sans MS" size="2">
+ 					<select style="width:175px;height:21px;font-size:12px;font-family:Comic Sans MS;">
+ 						<option value= "cliente"style="color:#black;background-color:#white;"> Visitante
+  						<option value= "estudiante"style="color:#white;background-color:#66ccff;"> Estudiante
+  						<option value= "ProfesInd"style="color:#white;background-color:#66ccff;"> Profesional Independiente
+  						<option value= "empleado"style="color:#white;background-color:#66ccff;">Empleado
+  						<option value= "empresa"style="color:#white;background-color:#66ccff;"> Empresa
+ 						<option value= "institucion"style="color:#white;background-color:#66ccff;"> Institución
+						<option value= "centroestudio"style="color:#white;background-color:#66ccff;"> Centro de Estudio
+						<option value= "tienda"style="#white;background-color:#66ccff;">Fábrica o Tienda
+						<option value= "Premium"style="#white;background-color:#66ccff;">Usuario Premium
+  					<select>
+					</font>
+
+</body>
+</html>

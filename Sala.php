@@ -1,0 +1,603 @@
+<?php
+	session_start();
+	$varsession= $_SESSION['nickname'];
+	if($varsession== null || $varsession=''){ 
+		echo 'Usted no tiene autorizacion';
+		die();
+	}
+?>
+<!DOCTYPE html>
+<Html lang="es">
+	<head>
+		<title> Team Tower </title>
+		<link rel= "stylesheet" type= "text/css" href="css/Estilo_Sala.css">
+		<meta charset= "UFT-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<div class="logoimagen" style="background-image: url(images/iconos/logo3.png)">
+				</div>
+				<div class="logoimagenb" style="background-image: url(images/iconos/logo3a.png)">
+				</div>
+				<div class="descripcion">
+					<h3></h3>
+					<h5></h5>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="asistencia" style="background-image: url(images/iconos/icono17a.png)" onclick="location.href='asistencia.html';" style= "cursor:pointer;">
+				</div>
+				<div class="configuracion" style="background-image: url(images/iconos/icono18a.png)" onclick="location.href='configuracion.html';" style= "cursor:pointer;">
+				</div>
+				<div class="AvisoLatam">
+					<div class= "avatar" style="background-image: url(images/iconos/icono19a.png)"  onclick="location.href='perfil.html';" style= "cursor:pointer;">
+					</div>
+					<div class= "bienvenida">
+						<p> Bienvenido <?php echo $_SESSION['nickname'] ?> </p>
+						<a href= "cerrarsesion.php"> Cerrar sesion </a>
+					</div>
+				</div>			
+			</div>
+		</header>
+		<div class="listado" style="background-image: url(images/iconos/icono27.png)"  onclick="location.href='Biblioteca.html';" style= "cursor:pointer;">
+		</div>
+		<div class="NavegarUno">
+				<div class = "Sala" style="background-image: url(images/iconos/icono1a.png)"  onclick="location.href='Sala.php';" style= "cursor:pointer;">
+				</div>
+				<div class = "Biblioteca" style="background-image: url(images/iconos/icono5a.png)"   onclick="location.href='biblioteca.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Software" style="background-image: url(images/iconos/icono7a.png)"   onclick="location.href='SoftwareEnLinea.php';" style= "cursor:pointer;">
+				</div>
+				<div class = "Cursos" style="background-image: url(images/iconos/icono2a.png)"   onclick="location.href='cursos.html';" style= "cursor:pointer;">
+				</div>	
+				<div class = "Tutorial" style="background-image: url(images/iconos/icono4a.png)"   onclick="location.href='tutorial.html';" style= "cursor:pointer;">
+				</div>	
+				<div class = "Articulo" style="background-image: url(images/iconos/icono3a.png)"   onclick="location.href='revista.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Agenda" style="background-image: url(images/iconos/icono10a.png)"   onclick="location.href='agenda.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Empresa" style="background-image: url(images/iconos/icono8a.png)"   onclick="location.href='empresa.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Proveedores" style="background-image: url(images/iconos/icono26a.png)"   onclick="location.href='tienda.html';" style= "cursor:pointer;">
+				</div>	
+				<div class = "Monedero" style="background-image: url(images/iconos/icono9a.png)" onclick="location.href='TowerMonedero.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Archivo" style="background-image: url(images/iconos/icono11a.png)" onclick="location.href='Correo.html';" style= "cursor:pointer;">	
+				</div>
+				<div class = "Llamada" style="background-image: url(images/iconos/icono12a.png)" onclick="location.href='LlamadaTelefonica.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "ClaseEnVivo" style="background-image: url(images/iconos/icono6a.png)"  onclick="location.href='VideoConferencia.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Imagen1">
+					<img src= "images/menup/sala.jpg">
+				</div>
+				<div class = "Imagen2">
+					<img src= "images/menup/cursos.jpg">
+				</div>
+				<div class = "Imagen3">
+					<img src= "images/menup/tutorial.jpg">
+				</div>
+				<div class = "Imagen4">
+					<img src= "images/menup/articulos.jpg">
+				</div>
+				<div class = "Imagen5">
+					<img src= "images/menup/biblioteca.jpg">
+				</div>
+				<div class = "Imagen6">
+					<img src= "images/menup/aulaenvivo.jpg">
+				</div>
+				<div class = "Imagen7">
+					<img src= "images/menup/software.jpg">
+				</div>
+				<div class = "Imagen10">
+					<img src= "images/menup/agenda.jpg">
+				</div>
+				<div class = "Imagen12">
+					<img src= "images/menup/Llamada.jpg">
+				</div>
+				<div class = "Imagen9">
+					<img src= "images/menup/monedero.jpg">
+				</div>
+				<div class = "Imagen14">
+					<img src= "images/menup/proveedor.jpg">
+				</div>
+				<div class = "Imagen8">
+					<img src= "images/menup/empresa.jpg">
+				</div>
+			</div>
+			<div class= "Anuncios">
+			<div class= "AnunciosEmpresas">
+				<div class="slider">
+					<ul>
+						<li>
+							<a href="Empresa1.html">
+							<img src="images/anuncios/1.jpg" alt="">						
+							</a>			
+						</li>
+						<li>
+							<a href="Empresa2.html"> 
+			  				<img src="images/anuncios/2.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa3.html"> 
+			  				<img src="images/anuncios/3.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa4.html"> 
+			  				<img src="images/anuncios/4.jpg" alt="">
+							</a>
+						</li>	
+						<li>
+							<a href="Empresa5.html"> 
+			  				<img src="images/anuncios/5.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa6.html"> 
+			  				<img src="images/anuncios/6.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa7.html"> 
+			  				<img src="images/anuncios/7.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa8.html"> 
+			  				<img src="images/anuncios/8.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa9.html"> 
+			  				<img src="images/anuncios/9.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa10.html"> 
+			  				<img src="images/anuncios/10.jpg" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class= "AnunciosEmpresas">
+				<div class="slider">
+					<ul>
+						<li>
+							<a href="Empresa11.html">
+							<img src="images/anuncios/11.jpg" alt="">						
+							</a>			
+						</li>
+						<li>
+							<a href="Empresa12.html"> 
+			  				<img src="images/anuncios/12.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa13.html"> 
+			  				<img src="images/anuncios/13.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa14.html"> 
+			  				<img src="images/anuncios/14.jpg" alt="">
+							</a>
+						</li>	
+						<li>
+							<a href="Empresa15.html"> 
+			  				<img src="images/anuncios/15.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa16.html"> 
+			  				<img src="images/anuncios/16.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa17.html"> 
+			  				<img src="images/anuncios/17.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa18.html"> 
+			  				<img src="images/anuncios/18.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa19.html"> 
+			  				<img src="images/anuncios/19.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="Empresa20.html"> 
+			  				<img src="images/anuncios/20.jpg" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class= "AnunciosPersonas">
+				<div class= "fotos">
+				</div>	
+				<p>Maximiliano Perozo<p>
+				<p>Asesor de Seguros<p>
+				<p>Acaba de Unirse<p>
+				<a href=""> Ver perfil </a>
+			</div>
+			<div class= "AnunciosPersonas">
+				<div class= "fotos">
+				</div>	
+				<p>Esteban Araujo<p>
+				<p>Corredor Inmobiliario<p>
+				<p>Acaba de Unirse<p>
+				<a href=""> Ver perfil </a>
+			</div>			
+		</div>
+		<div class="ParteA">
+			<div class = "CursosDisponibles">
+				<div class="contenedor">
+					<div class="contenedor_tarjeta">
+						<a href= "IngenieriaEstructural.html">
+							<figure class="frontal" style="background-image: url(images/Top20/1.jpg)" alt="">
+									<h2 class="titulo">>Ingeniería Estructural</h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>						
+								<figcaption class="trasera">
+									<h2 class="titulo"> Ingeniería Estructural </h2>
+									<hr>
+									<p> La ingeniería estructural es una rama clásica de la arquitectura y la ingeniería civil que se ocupa del diseño y cálculo de la parte estructural en elementos y sistemas estructurales tales como edificios, puentes, muros (incluyendo muros de contención), presas, túneles y otras obras civiles. Su finalidad es la de conseguir estructuras seguras, resistentes y funcionales. En un sentido práctico, la ingeniería estructural es la aplicación de la mecánica de medios continuos para el diseño de estructuras que soporten su propio peso (cargas muertas), más las cargas ejercidas por el uso (cargas vivas), más las cargas producidas por eventos de la naturaleza, como vientos, sismos, nieve o agua.</p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "IngenieriaTransito.html">
+							<figure class="frontal" style="background-image: url(images/Top20/2.jpg)" alt="">
+									<h2 class="titulo"> >Ingenieria de Transito</h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>						
+								<figcaption class="trasera">
+									<h2 class="titulo">Ingeniería de Transito</h2>
+									<hr>
+									<p> La Ingeniería de tráfico o de tránsito es una rama de la ingeniería del transporte y a su vez rama de la ingeniería civil que trata sobre la planificación, diseño y operación de tráfico en las calles, carreteras y autopistas, sus redes, infraestructuras, tierras colindantes y su relación con los diferentes medio de transporte consiguiendo una movilidad segura, eficiente y conveniente tanto de personas como de mercancía. </p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "IngenieriaVial.html">
+							<figure class="frontal" style="background-image: url(images/Top20/3.jpg)" alt="">
+									<h2 class="titulo"> >Ingenieria Vial </h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>			
+								<figcaption class="trasera">
+									<h2 class="titulo"> Ingeniería Vial </h2>
+									<hr>
+									<p> El Diseño geométrico de carreteras es la técnica de ingeniería civil que consiste en situar el trazado de una carretera o calle en el terreno. Los condicionantes para situar una carretera sobre la superficie son muchos, entre ellos la topografía del terreno, la geología, el medio ambiente, la hidrología o factores sociales y urbanísticos. El primer paso para el trazado de una carretera es un estudio de viabilidad, que determine el corredor donde podría situarse el trazado de la vía. Generalmente se estudian varios corredores y se estima cuál puede ser el coste ambiental, económico o social de la construcción de la carretera. Una vez elegido un corredor se determina el trazado exacto, minimizando el coste y estimando en el proyecto de construcción el costo total, especialmente el que supondrá el volumen de tierra desplazado y el firme necesario.</p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">	
+						<a href= "Pavimentos.html">
+								<figure class="frontal" style="background-image: url(images/Top20/4.jpg)" alt="">
+										<h2 class="titulo"> >Pavimentos </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>		
+									<figcaption class="trasera">
+										<h2 class="titulo"> Pavimentos </h2>
+										<hr> 
+										<p> El pavimento es la capa constituida por uno o más materiales que se colocan sobre el terreno natural o nivelado, para aumentar su resistencia y servir para la circulación de personas o vehículos. Entre los materiales utilizados en la pavimentación urbana, industrial o vial están los suelos con mayor capacidad de soporte, los materiales rocosos, el hormigón y las mezclas asfálticas</p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "EstructurasDeConcreto.html">
+								<figure class="frontal" style="background-image: url(images/Top20/5.jpg)" alt="">
+										<h2 class="titulo"> > Estructuras de Concreto Armado </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>		
+									<figcaption class="trasera">
+										<h2 class="titulo"> Estructuras de Concreto Armado </h2>
+										<hr>
+										<p> La técnica constructiva del concreto armado, hormigón armado u hormigón reforzado consiste en la utilización de hormigón o concreto reforzado con barras o mallas de acero, llamadas armaduras. También se puede armar con fibras, tales como fibras plásticas, fibra de vidrio, fibras de acero o combinaciones de barras de acero con fibras dependiendo de los requerimientos a los que estará sometido. El hormigón armado se utiliza en edificios de todo tipo, caminos, puentes, presas, túneles y obras industriales. La utilización de fibras es muy común en la aplicación de hormigón proyectado o shotcrete, especialmente en túneles y obras civiles en general. </p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "EstructurasDeAcero.html">
+								<figure class="frontal" style="background-image: url(images/Top20/6.jpg)" alt="">
+										<h2 class="titulo"> > Estructuras de Acero </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>				
+									<figcaption class="trasera">
+										<h2 class="titulo"> Estructuras de Acero </h2>
+										<hr>
+										<p> Construcción en acero es aquella construcción en que la mayor parte de los elementos simples o compuestos que constituyen la parte estructural son de acero. En el caso en que los elementos de acero se constituyan en elementos que soportan principalmente las solicitaciones de tracción de una estructura mientras que el hormigón (o concreto) toma las solicitaciones de compresión la construcción es de hormigón armado o concreto reforzado. Esa solución constructiva a pesar de contener acero en forma de hierro redondo no se incluye dentro de la definición de Construcción en Acero.Cuando conviven en una misma construcción elementos simples o compuestos de acero con los de hormigón armado la construcción se denomina mixta (acero-hormigón armado).</p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "Puentes.html">
+								<figure class="frontal" style="background-image: url(images/Top20/7.jpg)" alt="">
+										<h2 class="titulo"> > Puentes </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+									<figcaption class="trasera">
+										<h2 class="titulo"> Puentes </h2>
+										<hr>
+										<p> Un puente es una construcción que permite salvar un accidente geográfico como un río, un cañón, un valle, una carretera, un camino, una vía férrea, un cuerpo de agua o cualquier otro obstáculo físico. El diseño de cada puente varía dependiendo de su función y de la naturaleza del terreno sobre el que se construye.
+Su proyecto y su cálculo pertenecen a la ingeniería estructural, siendo numerosos los tipos de diseños que se han aplicado a lo largo de la historia, influidos por los materiales disponibles, las técnicas desarrolladas y las consideraciones económicas, entre otros factores. Al momento de analizar el diseño de un puente, la calidad del suelo o roca donde habrá de apoyarse y el régimen del río por encima del que cruza son de suma importancia para garantizar la vida del mismo.  </p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "NavesIndustriales.html">
+								<figure class="frontal" style="background-image: url(images/Top20/8.jpg)" alt="">
+										<h2 class="titulo"> > Naves Industriales </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+									<figcaption class="trasera">
+										<h2 class="titulo"> Naves Industriales </h2>
+										<hr>
+										<p> Una nave industrial es un edificio de uso industrial que alberga la producción y/o almacena los bienes industriales, junto con los obreros, las máquinas que los generan, el transporte interno, la salida y entrada de mercancías, etcétera. Los requerimientos y tipos de construcción que debe poseer la nave varían en función de las innumerables actividades económicas que se pueden desarrollar en su interior, lo que ha conducido al desarrollo de un gran número de soluciones constructivas. Por ejemplo, en las naves que albergan cadenas de producción la longitud suele ser la dimensión predominante de la construcción. </p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "IngenieriaSismica.html">
+								<figure class="frontal" style="background-image: url(images/Top20/9.jpg)" alt="">
+										<h2 class="titulo"> > Ingeniería Sismica </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+									<figcaption class="trasera">
+										<h2 class="titulo"> Ingeniería Sismica  </h2>
+										<hr>
+										<p>La ingeniería sísmica es el estudio del comportamiento de los edificios y las estructuras sujetas a carga sísmicas. Es el conjunto de la ingeniería estructural y civil. Los principales objetivos de la ingeniería sísmica son;
+
+Entender la interacción entre los edificios y la infraestructura pública con el subsuelo.
+Prever las potenciales consecuencias de fuertes terremotos en áreas urbanas y sus efectos en la infraestructura.
+Diseñar, construir y mantener estructuras que resistan a la exposición de un terremoto, más allá de las expectaciones y en total cumplimiento de los reglamentos de construcción.
+Mantener a la sociedad lejos de toda preocupación que les puede causar en tan solo pensar en las consecuencias de un terremoto.
+Una estructura apropiadamente diseñada no necesita ser extraordinariamente fuerte o cara. Las más poderosas y costosas herramientas para la ingeniería sísmica son las tecnologías de control de la vibración y en particular, el aislamiento de la base o cimentación.</p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "MecanicaDeSuelos.html">
+								<figure class="frontal" style="background-image: url(images/Top20/10.jpg)" alt="">
+										<h2 class="titulo"> > Mecánica de Suelos </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+									<figcaption class="trasera">
+										<h2 class="titulo"> Mecánica de Suelos </h2>
+										<hr>
+										<p> En ingeniería, la mecánica de suelos es la aplicación de las leyes de la física y las ciencias naturales a los problemas que involucran las cargas impuestas a la capa superficial de la corteza terrestre. Esta ciencia fue fundada por Karl von Terzaghi, a partir de 1925.
+
+Todas las obras de ingeniería civil se apoyan sobre el suelo de una u otra forma, y muchas de ellas, además, utilizan la tierra como elemento de construcción para terraplenes, diques y rellenos en general; por lo que, en consecuencia, su estabilidad y comportamiento funcional y estético estarán determinados, entre otros factores, por el desempeño del material de asiento situado dentro de las profundidades de influencia de los esfuerzos que se generan, o por el del suelo utilizado para conformar los rellenos.
+
+Si se sobrepasan los límites de la capacidad resistente del suelo o si, aún sin llegar a ellos, las deformaciones son considerables, se pueden producir esfuerzos secundarios en los miembros estructurales, quizás no tomados en consideración en el diseño, productores a su vez de deformaciones importantes, fisuras, grietas, alabeo o desplomes que pueden producir, en casos extremos, el colapso de la obra o su in-utilización y abandono.
+
+En consecuencia, las condiciones del suelo como elemento de sustentación y construcción y las del cimiento como dispositivo de transición entre aquel y la infraestructura, han de ser siempre observadas, aunque esto se haga en proyectos pequeños fundados sobre suelos normales a la vista de datos estadísticos y experiencias locales, y en proyectos de mediana a gran importancia o en suelos dudosos, infaliblemente, al través de una correcta investigación de mecánica de suelos. </p>
+									</figcaption>
+								</figure>	
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "Geologia.html">
+								<figure class="frontal" style="background-image: url(images/Top20/11.jpg)" alt="">
+										<h2 class="titulo"> > Geología </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+									<figcaption class="trasera">
+										<h2 class="titulo"> Geología </h2>
+										<hr>
+										<p> La geología es la ciencia natural que estudia la composición y estructura tanto interna como superficial del planeta Tierra, y los procesos por los cuales ha ido evolucionando a lo largo del tiempo geológico. La misma comprende un conjunto de geociencias, así conocidas actualmente desde el punto de vista de su pedagogía, desarrollo y aplicación profesional. Ofrece testimonios esenciales para comprender la tectónica de placas, la historia de la vida a través de la paleontología, y cómo fue la evolución de ésta, además de los climas del pasado. En la actualidad la geología tiene una importancia fundamental en la exploración de yacimientos minerales (minería) y de hidrocarburos (petróleo y gas natural), y la evaluación de recursos hídricos subterráneos (hidrogeología). También tiene importancia fundamental en la prevención y entendimiento de fenómenos naturales como remoción de masas en general, terremotos, tsunamis, erupciones volcánicas, entre otros. Aporta conocimientos clave en la solución de problemas de contaminación medioambiental, y provee información sobre los cambios climáticos del pasado. Juega también un rol importante en la geotecnia y la ingeniería civil. 
+
+La geología incluye ramas como la geofísica, la tectónica, la geología estructural, la estratigrafía, la geología histórica, la hidrogeología, la geomorfología, la petrología y la edafología.
+
+Por extensión se aplica al estudio del resto de los cuerpos y materia del sistema solar (astrogeología o geología planetaria). </p>
+									</figcaption>
+								</figure>
+						</a>	
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "Cimentaciones.html">
+							<figure class="frontal" style="background-image: url(images/Top20/12.jpg)" alt="">
+									<h2 class="titulo"> > Cimentaciones </h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>
+								<figcaption class="trasera">
+									<h2 class="titulo"> Cimentaciones </h2>
+									<hr>
+									<p> Se denomina cimentación al conjunto de elementos estructurales de una estructura cuya misión es transmitir sus cargas o elementos apoyados en ella al suelo, distribuyéndolas de forma que no superen su presión admisible ni produzcan cargas zonales. Debido a que la resistencia del suelo es, generalmente, menor que la de los pilares o muros que soporta, el área de contacto entre el suelo y la cimentación debe ser proporcionalmente más grande que los elementos soportados, excepto en suelos rocosos muy coherentes. La cimentación es importante porque es el grupo de elementos que soportan a la superestructura. La estabilidad de una edificación depende en gran medida del tipo de terreno sobre el que se asienta. </p>
+								</figcaption>	
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "SaneamientoAmbiental.html">
+							<figure class="frontal" style="background-image: url(images/Top20/13.jpg)" alt="">
+									<h2 class="titulo"> > Saneamiento Ambiental </h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>
+								<figcaption class="trasera">
+									<h2 class="titulo"> Saneamiento Ambiental  </h2>
+									<hr>
+									<p> El saneamiento ambiental básico o sanidad ambiental es el conjunto de acciones, técnicas y socioeconómicas de salud pública que tienen por objetivo alcanzar niveles crecientes de salubridad ambiental. Comprende el manejo sanitario del agua potable, las aguas residuales y los vertidos, los residuos sólidos, los residuos orgánicos tales como las excretas y residuos alimenticios, las emisiones a la atmósfera y el comportamiento higiénico que reduce los riesgos para la salud y previene la contaminación.
+
+Tiene por finalidad la promoción y el mejoramiento de condiciones de vida urbana y rural y del medio ambiente que afectan al ser humano.  </p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "ObrasHidraulicas.html">
+								<figure class="frontal" style="background-image: url(images/Top20/14.jpg)" alt="">
+										<h2 class="titulo"> > Obras Hidráulicas </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>						
+									<figcaption class="trasera">
+										<h2 class="titulo">  Obras Hidraulicas </h2>
+										<hr>
+										<p> Se entiende por obra hidráulica o infraestructura hidráulica a una construcción, en el campo de la ingeniería civil, ingeniería agrícola e ingeniería hidráulica, donde el elemento dominante tiene que ver con el agua. Se puede decir que las obras hidráulicas constituyen un conjunto de estructuras construidas con el objetivo de controlar el agua, cualquiera que sea su origen, con fines de aprovechamiento o de defensa. </p>
+									</figcaption>
+								</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "ObrasDeSaneamiento.html">
+							<figure class="frontal" style="background-image: url(images/Top20/15.jpg)" alt="">
+										<h2 class="titulo"> > Obras de Saneamiento </h2>
+										<h2 class="subtitulo"> Ordenar curso ya!</h2>
+								<figcaption class="trasera">
+									<h2 class="titulo"> Obras de Saneamiento  </h2>
+									<hr>
+									<p> Las obras de saneamiento son fundamentales en la infraestructura urbana de cualquier población, ya que son necesarias para conducir las aguas residuales a su tratamiento correspondiente. </p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					<div class="contenedor_tarjeta">
+						<a href= "#">
+							<figure class="frontal" style="background-image: url(images/Top20/16.jpg)" alt="">
+									<h2 class="titulo"> > No Disponible  </h2>
+									<h2 class="subtitulo"> Ordenar curso ya!</h2>
+								<figcaption class="trasera">
+									<h2 class="titulo"> No Disponible  </h2>
+									<hr>
+									<p> No Disponible  </p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ParteB">
+			<div class="Publicar">
+				<textarea name="Escribir" rows="2" cols="46"> Publicar </textarea>
+				<div class = "foto" style="background-image: url(images/iconos/icono16a.png)">
+				</div>	
+				<div class = "voz" style="background-image: url(images/iconos/icono15a.png)">
+				</div>
+				<div class = "video" style="background-image: url(images/iconos/icono14a.png)">
+				</div>
+				<div class= "EnviarP" style="background-image: url(images/iconos/icono22a.png)">
+				</div>	
+				<div class = "EnviarTower" style="background-image: url(images/iconos/icono24a.png)">
+				</div>
+			</div>
+			<div class = "CabChatG">
+				<div class= "CG"  style="background-image: url(images/iconos/CP.png)" "cursor:pointer">
+				</div>	
+				<div class= "conteCG">
+					1
+				</div>
+				<p> -- MSGs de Mi Equipo </p>
+				<textarea name="VerChatG" rows="2" cols="46"> </textarea>
+			</div>
+			<div class = "CabChatPub">
+				<div class= "CP"  style="background-image: url(images/iconos/CP.png)">
+				</div>	
+				<div class= "conteCP">
+					19
+				</div>
+				<p> -- MSGs de Mi Institución </p>
+				<textarea name="VerChatG" rows="2" cols="46">  </textarea>		
+			</div>		
+			<div class = "Comunidad">
+				<articule>
+					<hgroup>
+					  <h1> PAVIMENTOS RIGIDOS</h1><br>
+					  <h2> Tipos de Losas </h2><br>
+					</hgroup>
+					<time datetime= "10-06-2020"> Publicado 10-06-2020 </time><br><br>
+					<p> Existe cuatro maneras de diseñar y construir losas sobre piso:<br><br>
+					1) Losas con juntas sin refuerzo.<br>
+					2) Losas sobre piso reforzadas para limitar el ancho de las grietas causadas por la retracción o contracción del concreto, variaciones de temperatura y cargas aplicadas. Estas losas consisten en las siguientes:<br>
+					<small>– Losas con juntas Reforzadas con Barras de Acero Dulce.<br>
+					- Losas con juntas Reforzadas con mallas de alambre.<br>
+					- Losas con juntas Reforzadas con fibras <br>
+					– Losas con refuerzo continuo (pisos libre de juntas de contracción;</small><br>
+					3) Losas sobre piso reforzadas para prevenir el agrietamiento debido a la retracción, los cambios de temperatura y cargas aplicadas. Estas losas consisten en las siguientes:<br>
+					<small>–  Losas con concreto de compensación por retracción y<br>
+					–  Losas Post tensadas.</small><br>
+					4) Losas Estructurales. (ACI 318)<br> </p> <br>
+					<div class="slider2">
+						<ul>
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+	 						</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+	 						</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>					
+						</ul>
+					</div>	
+					<adress>
+						<a href="http://faztweb.com"> Visita mi Sitio Web </a> <br>
+					</adress>
+					<footer>
+					<p> Comentarios (10) </p><br>
+					</footer>
+				</articule>
+				<articule>
+					<hgroup>
+						<h1> LONGITUD DE ANCLAJES </h1><br>
+						<h2> Anclajes en Tension </h2><br>
+					</hgroup>
+					<time datetime= "10-06-2020"> Publicado 10-06-2020 </time><br>
+					<p> Contenido Articulo numero 2 </p> <br>
+					<div class="slider2">
+						<ul>
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+	 						</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+	 						</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+
+							<li>
+								<img src= "images/articulos/pav1.png"/> <br>
+ 							</li>
+						</ul>
+					</div>
+					<adress>
+						<a href="oficiostower.html"> Visita mi Sitio Web </a> <br>
+					</adress>
+					<footer>
+						<p> Comentarios (8) </p>
+					</footer>
+				</articule>
+			</div>
+		</div>
+		<script src="scripts/SalaJava.js"></script>
+	</body>
+</html>

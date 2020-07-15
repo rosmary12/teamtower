@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<Html lang="es">
+	<head>
+		<title> Perfil </title>
+		<link rel= "stylesheet" type= "text/css" href="css/Estilo_Perfil.css">
+		<meta charset= "UFT-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<div class="logoimagen" style="background-image: url(images/iconos/logo3.png)">
+				</div>
+				<div class="logoimagenb" style="background-image: url(images/iconos/logo3a.png)">				</div>
+				</div>
+				<div class="descripcionlogo">
+				</div>
+			</div>
+			<div class="menu">
+				<div class="Inicio" style="background-image: url(images/iconos/icono1a.png)" onclick="location.href='Sala.php';" style= "cursor:pointer;">		
+				</div>
+				<div class="asistencia" style="background-image: url(images/iconos/icono17a.png)" onclick="location.href='asistencia.html';" style= "cursor:pointer;">
+				</div>	
+				<div class="ampliarvisor" style="background-image: url(images/iconos/icono28.png)">
+				</div>
+				<div class="disminuirvisor" style="background-image: url(images/iconos/icono29.png)">
+				</div>
+				<div class="listado" style="background-image: url(images/iconos/icono27.png)"  onclick="location.href='Biblioteca.html';" style= "cursor:pointer;">
+				</div>
+			</div>
+		</header>
+		<div class="portada" style= "background-image:url(images/rosmary.jpg)">
+		,
+		</div>
+		<div class="FotoPerfil" style= "background-image:url(images/asistencia.jpg)">
+		</div>
+		<div class="titulo">
+			<a href= "Seguridad.html"> Opciones de Seguridad </a> <br>
+			<a href= "Cuenta.html"> Cuenta </a> <br>
+			<a href= "Publicaciones.html"> Publicaciones </a><br>
+			<a href= "" > <h3>Perfil </h3></a> <br>	
+		</div>	
+		<form action="intereses.php" target="_blank">
+		<fieldset>
+			<legend> INTERESES </legend>
+			<p>
+				<label><input type="checkbox" name="arte"> Arte y Espectáculo </label><br>
+				<label><input type="checkbox" name="deporte"> Deportes </label><br>
+				<label><input type="checkbox" name="videojuegos"> Videojuegos</label><br>
+				<label><input type="checkbox" name="television"> Televisión </label><br>
+				<label><input type="checkbox" name="turismo"> Viajes y Turismo </label><br>
+				<label><input type="checkbox" name="ciencia"> Ciencias y Tecnología </label><br>
+				<label><input type="checkbox" name="educacion"> Literatura y Educación </label><br>
+				<label><input type="checkbox" name="negocios"> Negocios </label><br>
+				<label><input type="checkbox" name="moda"> Moda </label><br>
+				<label><input type="checkbox" name="hogar"> Hogar </label><br>
+				<label><input type="checkbox" name="otros"> Otros </label><br>
+			</p>
+		<input type="submit" size="20px" class="boton" value="Guardar">
+		</fieldset>
+		</form>
+		<form action="datos.php" target="_blank">
+			<fieldset>		
+				<legend>INFORMACION PERSONAL</legend>
+					<p><label><input type="text" name="nickname" placeholder= "Apodo" required></label></p>
+					<p><label><input type="text" name="nombre" placeholder= "Nombre" required></label></p>
+					<p><label><input type="text" name="apellido" placeholder= "Apellido" required></label></p>
+					<p><label><input type="text" name="nacimiento" placeholder= "Fecha de Nacimiento" required></label></p>
+					<p><label><input type="text" name="nacionalidad" placeholder= "Nacionalidad" required></label></p>
+					<p><label><input type="text" name="cedula" placeholder= "Cédula de Identidad" required></label></p>
+					<p><label><select type="text" id="sexo" name="sexo" style= "width:175px; height:21px; placeholder= "Sexo" required >
+									<option> Sexo </option>
+									<option> F </option>
+									<option> M </option>
+							</select> </td>    </label></p>
+					<p><label><input type="text" name="idioma" placeholder= "Idioma Nativo" required></label></p>	
+					<p><label><input type="text" name="idiomasecundario" placeholder= "Segundo Idioma" required></label></p>
+					<p><label><select type="text" id="estadocivil" name="estadocivil" style= "width:175px; height:21px; font-size:12px; font-family:Comic Sans MS">
+								<option> Estado Civil </option>
+								<option> Soltero-a </option>
+								<option> Comprometido-a </option>
+								<option> Casado-a </option>
+								<option> Divorciado-a </option>
+								<option> Viudo-a </opt ion>
+							</select> </td>    </label></p>
+					<input type="submit" size="20px" class="boton" name="guardar" value="Guardar"> <br>
+			</fieldset>
+		</form>
+		<form action="datos.php" target="_blank">
+			<fieldset>
+				<legend> UBICACION </legend>
+					<p><label><input type="text" name="email" placeholder= "Correo Electrónico" required ></label></p>
+					<p><label><input type="text" name="telefono"  placeholder= "Teléfono Móvil" required ></label></p>
+					<p><label><input type="text" name="telefono2"  placeholder= "Teléfono Casa" required ></label></p>
+					<p><label><input type="text" name="telefono3"  placeholder= "Teléfono Oficina" required ></label></p>
+					<p><label><input type="text" name="direccion"  placeholder= "Dirección Habitación" required ></label></p>
+					<p><label><input type="text" name="sector"  placeholder= "Casa Número" required ></label></p>
+					<p><label><input type="text" name="sector"  placeholder= "Sector" required ></label></p>
+					<p><label><input type="text" name="municipio"  placeholder= "Municipio" required ></label></p>
+					<p><label><input type="text" name="estado"  placeholder= "Estado" required ></label></p>
+					<p><label><input type="text" name="codigopostal"  placeholder= "Código Postal" required ></label></p>
+					<input type="submit" size="20px" class="boton" name="guardar" value="Guardar"> <br>
+			</fieldset>		
+		</form>		
+		
+		<form action="cveducacion.php" target="_blank">
+			<fieldset>
+				<legend> EDUCACION </legend>
+				<p>
+				<p><label><select type="text" id="tipoeducacion" name="tipoeducacion" style= "width:175px; height:21px; font-size:12px; font-family:Comic Sans MS">
+								<option> Tipo  </option>
+								<option> Curso </option>
+								<option> Bachillerato </option>
+								<option> Universitario </option>
+								<option> Diplomado </option>
+								<option> Especialización </option>
+								<option> Maestría </option>
+								<option> Doctorado </option>
+						</select> </td>    </label></p>
+					<p><label> <input type="text" name="titulo" placeholder= "Titulo" required></label></p>
+					<p><label> <input type="text" name="instituto" placeholder= "Instituto" required></label></p>
+					<p><label> <input type="text" name="duracion" placeholder= "Duración" required></label></p>
+					<p><label> <input type="text" name="inicio" placeholder= "Inicio" required></label></p>
+					<p><label> <input type="text" name="fin" placeholder= "Fin" required></label></p>
+				</p>
+				<input type="submit" size="20px" class="boton" value="Añadir">
+				<input type="submit" size="20px" class="boton" value="Guardar">
+			</fieldset>
+		</form>
+		<form action="cveducacion.php" target="_blank">
+			<fieldset>
+				<legend> INFORMACION LABORAL </legend>
+					<p>
+					<p><label><input type="text" name="cargo" placeholder= "Cargo" required></label></p>
+					<p><label><input type="text" name="empresa"placeholder= "Empresa" required></label></p>
+					<p><label><input type="text" name="duracion"placeholder= "Duración" required></label></p>
+					<p><label><input type="text" name="inicio"placeholder= "Inicio" required></label></p>
+					<p><label><input type="text" name="fin" placeholder= "Fin" required></label></p>
+					<p><label><input type="text" name="personalacargo" placeholder= "Personas a Cargo" required></label></p>		
+					</p>
+					<input type="submit" size="20px" class="boton" value="Añadir">
+					<input type="submit" size="20px" class="boton" value="Guardar">
+			</fieldset>
+		</form>
+		<form action="cveducacion.php" target="_blank">
+			<fieldset>
+				<legend> HABILIDADES</legend>
+					<p>
+					<p><label><input type="text" name="hab1" placeholder= "Habilidad 1" required></label></p>
+					<p><label><input type="text" name="hab2"placeholder= "Habilidad 2" required></label></p>
+					<p><label><input type="text" name="hab3"placeholder= "Habilidad 3" required></label></p>
+					<p><label><input type="text" name="hab4"placeholder= "Habilidad 4" required></label></p>
+					<p><label><input type="text" name="hab5" placeholder= "Habilidad 5" required></label></p>
+					<p><label><input type="text" name="hab6" placeholder= "Habilidad 6" required></label></p>		
+					</p>
+					<input type="submit" size="20px" class="boton" value="Añadir">
+					<input type="submit" size="20px" class="boton" value="Guardar">
+			</fieldset>
+		</form>
+		<footer>
+			<a href= "" > Configuración de CV </a> <br>	
+			<a href= "" > Publicar CV </a> <br>		
+			<a href= "" > Imprimir CV </a> <br>
+		</footer>
+		</body>
+</html>

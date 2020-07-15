@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title> Mecanica de Suelos ADFL Team Tower </title>
+		<link rel= "stylesheet" type= "text/css" href="css/Estilo_Pavimento.css">
+		<meta charset= "UFT-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<div class="logoimagen" style="background-image: url(images/iconos/logo3.png)">
+				</div>
+				<div class="logoimagenb" style="background-image: url(images/iconos/logo3a.png)">
+				</div>
+				<div class="descripcion">
+					<h3></h3>
+					<h5></h5>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="asistencia" style="background-image: url(images/iconos/icono17a.png)" onclick="location.href='asistencia.html';" style= "cursor:pointer;">
+				</div>
+				<div class = "Sala" style="background-image: url(images/iconos/icono1a.png)"  onclick="location.href='Sala.php';" style= "cursor:pointer;">
+				</div>
+				<div class="configuracion" style="background-image: url(images/iconos/icono18a.png)" onclick="location.href='configuracion.html';" style= "cursor:pointer;">
+				</div>
+				<div class="AvisoLatam">
+					<div class= "avatar" style="background-image: url(images/iconos/icono19a.png)"  onclick="location.href='perfil.html';" style= "cursor:pointer;">
+					</div>
+					<div class= "bienvenida">
+						<p> Bienvenido <?php echo $_SESSION['nickname'] ?> </p>
+						<a href= "cerrarsesion.php"> Cerrar sesion </a>
+					</div>
+				</div>			
+			</div>
+		</header>
+		<div class="SeccionA">
+		.
+		</div>
+	
+		<div class="SeccionB">		
+		<form>
+				<fieldset>
+				<legend> Suelos y Materiales </legend>
+					<h5>
+					 Granulometria <br>
+					<td> <input type="text" id="P4" size="10" placeholder= "%PasaMalla#4"> <input type="text" id="P6" size="10" placeholder="%PasaMalla#6"> <input type="text" id="P8" size="10" placeholder="%PasaMalla#8"> <input type="text" id="P10" size="10" placeholder="%PasaMalla#10"> </td> <br> 
+					<td> 			 	<input type="text" id="P16" size="10" placeholder= "%PasaMalla#16"> <input  type="text" id="P20" size="10" placeholder= "%PasaMalla#20"> <input type="text" id="P30" size="10" placeholder= "%PasaMalla#30"> <input type="text" id="P40" size="10" placeholder= "%PasaMalla#40"> </td> <br>  
+					<td>  				<input type="text" id="P50" size="10" placeholder= "%PasaMalla#50"> <input type="text"  id="P60" size="10" placeholder= "%PasaMalla#60"> <input type="text" id="P80"  size="10" placeholder= "%PasaMall#80"> <input type="text" id="P100" size="10" placeholder= "%PasaMall#100"></td> <br>
+					<td> 			 	<input type="text" id="P140" size="10" placeholder= "%PasaMalla#140"> <input type="text" id="P170" size="10" placeholder= "%PasaMalla#170">  <input type="text" id="P200" size="10" placeholder= "%PasaMall#200"> <input type="text" id="P270" size="10" placeholder= "%PasaMall#270"> </td> <br> 
+										<input type="text" id="LL" size="8" placeholder= "Limite Liquido"> <input type="text" id="PL" size="8" placeholder= "Limite Plastico"> </td> <br>
+					<td> <input type="button" value="Clasificar AASHTO" onclick="cAASHTO()"> 
+						<input type="button" value="Clasificar ASTM" onclick="cASTM()"> </td> <br><br>	
+					<div id="tiposuelo"> Tipo de Suelo </div>
+					<div id="IndiceGrupo"> Indice de Grupo </div> <br><br>	
+					<td>Metodo de Correlacion </td> <br>
+					<h6><td><Label> <input type="radio" name="opcion" value="CBRHK" style="width:30px;height:20px;background-color:;"> CBR Heukelom y Klomp </Label>
+							<Label> <input type="radio" name="opcion" value="CBRV" style="width:30px;height:20px;background-color:;"> CBR Venezuela </Label> 							
+							<Label> <input type="radio" name="opcion" value="CBRK" style="width:30px;height:20px;background-color:;"> CBR Kentucky </Label> <br>
+							<Label> <input type="radio" name="opcion" value="VRIA" style="width:30px;height:20px;background-color:;"> Valor-R Instituto Asfalto </Label>
+							<Label> <input type="radio" name="opcion" value="VRC" style="width:30px;height:20px;background-color:;"> Valor-R California </Label>
+							<Label> <input type="radio" name="opcion" value="VRW" style="width:30px;height:20px;background-color:;"> Valor-R Washington </Label> <br>
+							<Label> <input type="radio" name="opcion" value="TTC" style="width:30px;height:20px;background-color:;"> Texas Triaxial Clasico </Label>
+							<Label> <input type="radio" name="opcion" value="SOP" style="width:30px;height:20px;background-color:;"> Valor Soporte </Label>
+							<Label> <input type="radio" name="opcion" value="IG" style="width:30px;height:20px;background-color:;"> Indice de Grupo </Label> <br>
+							<Label> <input type="radio" name="opcion" value="MR" style="width:30px;height:20px;background-color:;"> Módulo Reacción </Label>
+							<Label> <input type="radio" name="opcion" value="MR" style="width:30px;height:20px;background-color:;"> Módulo Resilente </Label> </td> <br><br>
+					</h6>
+					<td> <h6> Ubicacion
+					<select type="text" name="ubicación" style= "width:100px; height:21px">
+										<option> Venezuela </option>
+										<option> Colombia </option>
+										<option> Peru </option>
+										<option> Ecuador </option>
+										<option> Chile </option>
+										<option> Uruguay </option>
+										<option> Paraguay </option>
+										<option> Argentina <option>
+										<option> Bolivia <option>
+										<option> Brasil <option></h6>
+					</select> 	<a Href="MapaClima.html"> Mapa Zona Climatica </a> </h6> </td>
+					<td> <h6> Clima 
+					<select type="text" name="zonaclimatica" style= "width:350px; height:21px">
+										<h6><option> Zona I  (meses saturados:8,humedos:2,secos:2) </option>
+										<option> Zona II (meses saturados:2,humedos:4,secos:6) </option>
+										<option> Zona III(meses saturados:6,humedos:3,secos:3) </option>
+										<option> Zona IV (meses saturados:4,humedos:4,secos:4) </option>
+										<option> Zona V  (meses saturados:4,humedos:2,secos:6) </option>
+										<option> Zona VI (meses saturados:3.5,humedos:3,secos:5.5)</option>
+										<option> Zona VII(meses saturados:3,humedos:3,secos:6) </option>
+										<option> Zona VIII(meses saturados:2,humedos:3,secos:7) <option>
+										<option> Zona IX (meses saturados:0.5, humedos:1.5, secos:10) <option>
+										<option> Zona X  (meses saturados:1,humedos:4,secos:7) <option>
+										<option> Zona XI (meses saturados:2,humedos:5,secos:5) <option>
+										<option> Zona XII(meses saturados:0,humedos:0,secos:12) <option></h6>
+					</select>  </td> <br>
+				<div class= "DatoSuelo">
+					<div class" "ver">
+					 <h4><a Href="SueloReferencial.html">  Datos Referenciales </a></h4>
+					</div>				
+					<td><input type="text" size="11" name="messat" placeholder= "Meses Saturados"> <input type="text" size="11" id="ValorSt" placeholder= "Valor Saturado"> <input type="text" size="11" id="fi" placeholder= "f1+f2+f3"></td><br>
+					<td><input type="text" size="11" name="meshum" placeholder= "Meses Humedos "> <input type="text" size="11"id="ValorHm" placeholder= "Valor Humedo"> <input type="text" size="11" id="fi" placeholder= "f1+f2+f3"></td><br>
+					<td><input type="text" size="11" name="messec" placeholder= "Meses Secos"> <input type="text" size="11" id="ValorSc" placeholder= "Valor Seco"> <input type="text" size="11" id="fi" placeholder= "f1+f2+f3"></td><br><br>
+
+					<td> <input type="button" value="Correlacionar" onclick="correlacionar()">
+				<div id="ModResPond"> Modulo Resilente Ponderado </div>
+					<div id="ModReacPond"> Modulo Reaccion Ponderado </div>
+				</div>
+				
+				<td><input type="submit" size="10px" class="boton" name="Fundacion" value="Anadir Fundacion"> <input type="submit" size="10px" class="boton" name="Base" value="Anadir Base"> <input type="submit" size="10px" class="boton" name="SubBase" value="Anadir Sub Base"></td>
+				</fieldset>	</h5>	
+		</form>
+		<form>
+		<fieldset>
+			<legend> Materiales (AASHTO)  </legend>
+			<h5>
+			<td> Estrato 1  <select type="text" id="Est" style= "width:160px; height:21px">
+										<option> Rod. Concreto </option>
+										<option> Rod. Mezcla Asfaltica </option>						
+										<option> Base Mez. Asf.Pobre </option>
+										<option> Base Granular </option>
+										<option> Sub Base Granular </option>
+										<option> Base Suelo-Cemento </option>
+										<option> -  </option>
+							</select>
+							<select type="text" id="Und" style= "width:80px; height:21px">
+										<option> E  - psi </option>
+										<option> EM - lb </option>
+										<option> MR - psi </option>
+										<option> CBR % </option>
+										<option> F'c- psi </option>
+										<option> - </option>
+							</select>						
+							<input type="text" id="Prop" size="10" placeholder= "Propiedad"> <input type="text" id="CoEs" size="5" placeholder="Coeficiente Estructural"> <input type="text" id="Perm" size="5" placeholder="Permeabilidad"> <input type="text" id="Esp" size="5" placeholder="Espesor"></td> <br> 	
+			<td> Estrato 2  <select type="text" id="Est" style= "width:160px; height:21px">
+										<option> Rod. Mezcla Asfaltica </option>
+										<option> Rod. Concreto </option>
+										<option> Base Mez. Asf.Pobre </option>
+										<option> Base Granular </option>
+										<option> Sub Base Granular </option>
+										<option> Base Suelo-Cemento </option>
+										<option> -  </option>
+							</select>
+							<select type="text" id="Und" style= "width:80px; height:21px">
+										<option> EM - lb </option>
+										<option> E  - psi </option>
+										<option> MR - psi </option>
+										<option> CBR % </option>
+										<option> F'c- psi </option>
+										<option> K -psi/in </option>
+										<option> - </option>
+							</select>							
+							<input type="text" id="Prop" size="10" placeholder= "Propiedad"> <input type="text" id="CoEs" size="5" placeholder="Coeficiente Estructural"> <input type="text" id="Perm" size="5" placeholder="Permeabilidad"> <input type="text" id="Esp" size="5" placeholder="Espesor"></td> <br> 
+			<td> Estrato 3  <select type="text" id="Est" style= "width:160px; height:21px">
+										<option> Rod. Mezcla Asfaltica </option>
+										<option> Rod. Concreto </option>
+										<option> Base Mez. Asf.Pobre </option>
+										<option> Base Granular </option>
+										<option> Sub Base Granular </option>
+										<option> Base Suelo-Cemento </option>
+										<option> - </option>
+							</select>
+							<select type="text" id="Und" style= "width:80px; height:21px">
+										<option> EM - lb </option>
+										<option> E  - psi </option>
+										<option> MR - psi </option>
+										<option> CBR % </option>
+										<option> F'c- psi </option>
+										<option> K -psi/in </option>
+										<option> - </option>
+							</select>							
+							<input type="text" id="Prop" size="10" placeholder= "Propiedad"> <input type="text" id="CoEs" size="5" placeholder="Coeficiente Estructural"> <input type="text" id="Perm" size="5" placeholder="Permeabilidad"> <input type="text" id="Esp" size="5" placeholder="Espesor"></td> <br> 
+			<td> Estrato 4  <select type="text" id="Est" style= "width:160px; height:21px">
+										<option> Rod. Mezcla Asfaltica </option>
+										<option> Rod. Concreto </option>
+										<option> Base Mez. Asf.Pobre </option>
+										<option> Base Granular </option>
+										<option> Sub Base Granular </option>
+										<option> Base Suelo-Cemento </option>
+										<option> - </option>
+							</select>
+							<select type="text" id="Und" style= "width:80px; height:21px">
+										<option> EM - lb </option>
+										<option> E  - psi </option>
+										<option> MR - psi </option>
+										<option> CBR % </option>
+										<option> F'c- psi </option>
+										<option> K -psi/in </option>
+										<option> - </option>
+							</select>					
+							<input type="text" id="Prop" size="10" placeholder= "Propiedad"> <input type="text" id="CoEs" size="5" placeholder="Coeficiente Estructural"> <input type="text" id="Perm" size="5" placeholder="Permeabilidad"> <input type="text" id="Esp" size="5" placeholder="Espesor"></td> <br> 
+		<td> <input type="button" value="Correlacionar" onclick="correlacionar2()">
+		</fieldset>
+		</form>
+		</div>
+		<script type="text/javascript">
+		function cAASHTO(){
+			var LLo=document.getElementById('LL').value;
+			var PLo=document.getElementById('PL').value;
+			var PI=(LLo-PLo);
+			var Pdosc=document.getElementById('P200').value;
+			var Pcuar=document.getElementById('P40').value;
+			var Pdiez=document.getElementById('P10').value;
+			document.getElementById('tiposuelo').innerHTML= ' A-4, Suelo Limoso, Subrasante Regular a Pobre: CBR 3-25 ';
+			if(Pdosc > 35){
+				if(LLo < 41){
+					if(PI < 11){
+						document.getElementById('tiposuelo').innerHTML= ' A-4, Suelo Limoso, Subrasante Regular a Pobre: CBR 3-25 ';
+					}else{		
+						document.getElementById('tiposuelo').innerHTML= ' A-6, Suelo Arcilloso, Subrasante Regular a Pobre: CBR  2-14 ';
+					}
+				}else{
+					if(PI < 11){
+						document.getElementById('tiposuelo').innerHTML= ' A-5, Suelo Limoso, Subrasante Regular a Pobre, CBR 2-14 ';
+					}else{		
+						if(PI <(LLo-30)){
+							document.getElementById('tiposuelo').innerHTML= ' A-7-5, Suelo Arcilloso, Subrasante Regular a Pobre, CBR 2-14 ';
+						}else{
+							document.getElementById('tiposuelo').innerHTML= ' A-7-6, Suelo Arcilloso, Subrasante Regular a Pobre, CBR 2-14 ';
+						}	
+					}
+				}
+			}else{
+				if (Pdosc < 11){
+					if (Pcuar > 50){
+						if(PI = 0){
+							document.getElementById('tiposuelo').innerHTML= ' A-3, Arena Fina, Subrasante Excelente a Buena, CBR 10-30 ';
+						}
+					}
+				}
+				if (Pdosc<16){
+					if (Pcuar<31){
+						if (Pdiez<51){
+							if(PI<7){
+								document.getElementById('tiposuelo').innerHTML= ' A-1-a, Fragmentos de Roca, Grava y Arena, Subrasante Excelente a Buena, CBR 38-80 ';
+							}
+						}
+					}
+				}
+				if (Pdosc < 26){
+					if (Pcuar < 51){
+						if(PI < 7){
+							document.getElementById('tiposuelo').innerHTML= ' A-1-b, Fragmentos de Roca, grava y arena, Subrasante Excelente a Buena, CBR 20-60 ';
+						}
+					}					
+				}
+				if(LLo < 40){
+					if(PI < 11){
+						document.getElementById('tiposuelo').innerHTML= ' A-2-4, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena, CBR 26-80 ';
+					}else{			
+					document.getElementById('tiposuelo').innerHTML= ' A-2-6, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena, CBR  9-30 ';
+					}
+				}else{
+					if(PI < 11){
+						document.getElementById('tiposuelo').innerHTML= ' A-2-5, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena, CBR 26-80 ';
+					}else{
+					document.getElementById('tiposuelo').innerHTML= ' A-2-7, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena, CBR  9-30 ';	
+					}
+				}
+			}
+			if(document.getElementById('tiposuelo').innerHTML = "A-2-6"  || document.getElementById('resultadotiposuelo').innerHTML = "A-2-7"){
+				var GI = 0,01*(Fdosc-15)*(PI-10);
+			}else{
+				var GI= (Fdosc-35)*(0,2 + 0,005*(LLo-40))+0,01*(Fdosc-15)*(PI-10);
+			}
+			document.getElementById('IndiceGrupo').innerHTML = ' Indice de Grupo: ' + GI;
+		}
+		</script>
+	<script type="text/javascript">
+	function corr_suelo(){
+	var MRsat;
+	var MRhum;
+	var MRsec;
+	var ValorSat=document.getElementById('ValorSt').value;
+	var ValorHum=document.getElementById('ValorHm').value;
+	var ValorSec=document.getElementById('ValorSc').value;
+		if (metodo="CBRHK"){
+			MRsat= 1500*ValorSat;
+			MRhum= 1500*ValorHum;
+			MRsec= 1500*ValorSec;
+		}
+		if (metodo="VRIA"){
+			MRsat = 1000 +555*ValorSat;
+			MRhum = 1000 +555*ValorHum;
+			MRsec = 1000 +555*ValorSec;
+		}
+		if (metodo="CBRV"){
+			if (ValorSat<10){
+				MRsat = 1500*ValorSat;
+				MRhum = 1500*ValorHum;
+				MRsec = 1500*ValorSec;
+			}else{
+			if (ValorSat<21){
+			MRsat = 3000*POTENCIA(ValorSat;0,65);
+			MRhum = 3000*POTENCIA(ValorHum;0,65);
+			MRsec = 3000*POTENCIA(ValorSec;0,65);
+			}else{
+			MRsat = 4326*LN(ValorSat)+ 241;
+			MRhum = 4326*LN(ValorHum)+ 241;
+			MRsec = 4326*LN(ValorSec)+ 241;
+		}
+		if (metodo="SOP"){
+			MRsat = 1019,05649*EXP(0,36935*ValorSat);
+			MRhum = 1019,05649*EXP(0,36935*ValorHum);
+			MRsec = 1019,05649*EXP(0,36935*ValorSec);
+		}
+		if (metodo="CBRK"){
+			MRsat = 1923,6422*POTENCIA(ValorSat;0,68839);
+			MRhum = 1923,6422*POTENCIA(ValorHum;0,68839);
+			MRsec = 1923,6422*POTENCIA(ValorSec;0,68839);
+		}
+		if (metodo="VRC"){
+			MRsat = 2184,56125*EXP(0,03466*ValorSat);
+			MRhum = 2184,56125*EXP(0,03466*ValorHum);
+			MRsec = 2184,56125*EXP(0,03466*ValorSec);
+		}
+		if (metodo="VRW"){
+			MRsat = 2608,8492*EXP(0,0329*ValorSat);
+			MRhum = 2608,8492*EXP(0,0329*ValorHum);
+			MRsec = 2608,8492*EXP(0,0329*ValorSec);
+		}
+		if (metodo="TTC"){
+			MRsat = 2476,6359*ValorSat*ValorSat - 28924,71605*ValorSat + 87456,13361;	
+			MRhum = 2476,6359*ValorHum*ValorHum - 28924,71605*ValorHum + 87456,13361;
+			MRsec = 2476,6359*ValorSec*ValorSec - 28924,71605*ValorSec + 87456,13361;
+		}
+		if (metodo="IG"){
+			MRsat =13,50112*ValorSat*ValorSat- 650,87922*ValorSat + 10255,5755;
+			MRhum =13,50112*ValorHum*ValorHum- 650,87922*ValorHum + 10255,5755;
+			MRsec =13,50112*ValorSec*ValorSec- 650,87922*ValorSec + 10255,5755;
+		}
+		var URsat= 180000000*POTENCIA(MRsat;-2,32);
+		var URhum= 180000000*POTENCIA(MRhum;-2,32);
+		var URsec= 180000000*POTENCIA(MRsec;-2,32);
+		var URpond= (messat*URsat+ meshum*URhum + messec*URsec)/(messat+meshum+messec);
+		var MRponderado= POTENCIA(URpond/(180000000);-1/2,32);
+		var MReaccion=;
+		document.getElementById('ModResPond').innerHTML= ' Modulo Resilente ponderado: ' + MRponderado;
+		document.getElementById('ModReacPond').innerHTML= ' Modulo Reaccion ponderado: ' + MReaccion;		
+	}
+	</script>
+	<script type="text/javascript">
+	function corr_material(){
+	
+	//Capa Rodamiento Mezcla Asfaltica
+	var MRma=10000*((-7,8517371861E-10)*EM*EM*EM + (3,1755675955E-06)*EM*EM - (1,8307576539E-03)*EM + 1,5130082559E+00);
+	var Coefa1=(-1,8919848641E-11)*EM*EM*EM + (5,7391640867E-08)*EM*EM + (9,0879342965E-05)*EM + 1,7262590299E-01;
+	var Coefa1= 0,0055395220335*MRma*MRma*MRma/(10000*10000*10000) - 0,05338337831*MRma*MRma/(10000*10000) + 0,22459360982*MRma/(10000) + 0,016892759227;
+	//Base Mezcla Asfaltica Pobre
+	var MRmap= 10000*(0,00000052792827657*EMp*EMp + 0,00075235423117*EMp + 0,79448529412);
+	var coefa2= -6,4821981424E-14*EMp*EMp*EMp*EMp + 2,8412022704E-10*EMp*EMp*EMp  - 0,00000042784120227*EMp*EMp + 0,0003659378225*EMp + 0,065345588237;
+	var coefa2= -1,4391652428E-02*MRmap*MRmap/(10000*10000) + 1,3153855970E-01*MRmap/(10000) + 1,5057844549E-02;		
+	//Base Granular
+	var MRb = = 1000*(8,9052197374*LN(CBRb) - 10,866267824);
+	var Coefa2a=0,00000020456802383*CBRb*CBRb*CBRb - 0,000050047169811*CBRb*CBRb + 0,0042959036743*CBRb + 0,0064448857994;
+	var Coefa2a=-0,00014784089727*MRb*MRb/(1000*1000) + 0,011431658252*MRb/(1000) - 0,069162640422;
+	//Sub Base Granular
+	var MRsb =1000*(5,4722940673*POTENCIA(CBRsb;0,29883486107));
+	var Coefa3= -0,00000020289855072*CBRsb*CBRsb*CBRsb + 0,000010062111801*CBRsb*CBRsb + 0,0012345755694*CBRsb + 0,066832298137;
+	var Coefa3= 6,6736842105E-03*MRsb + 6,8912280702E-03;
+	//Base o Subbase Suelo-Cemento
+	var MRsc= 10000*(-0,0000000034932659933*RCSc7*RCSc7*RCSc7 + 0,0000085281385281*RCSc7*RCSc7 - 0,00069883357383*RCSc7+ 5,1043650794);
+	var Coefa4= 0,00015766666667*RCSc7 + 0,093288888889;
+	var Coefa4= 0,00092687757424*MRsc*MRsc*MRsc/(10000*10000*10000) - 0,022928552427*MRsc*MRsc/(10000*10000)+ 0,2128040544*MRsc/10000 - 0,49500155399;
+	}
+	//Codificado por: Rosmary Nereida Linarez Perdomo
+	</script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title> Video Conferencias </title>
+		<link rel="stylesheet type="text/css" href="css/Estilo_Conferencia.css">
+		<meta charset= "UFT-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	</head>
+	<body>	
+		<!--Configuración de la conferencia -->
+		<div class="TextoVoz">
+			<div class="transmisionA">
+				<Label> Transmitido a:</Label>		
+				<select class="S1" style= "width:110px;height:23px;">
+ 					<option value= "publico"style="color:#white;background-color:#66ccff;"> Público
+  					<option value= "institucion"style="color:#white;background-color:#66ccff;"> Mi Institución
+  					<option value= "equipo"style="color:#white;background-color:#66ccff;"> Mi Equipo
+  					<option value= "inscritos"style="color:#white;background-color:#66ccff;"> Inscritos
+				</select>
+			</div>
+			<div class="origen">
+			<div class="origen2">
+				<Label> Origen:</Label>
+	 			<select class="S2" style= "width:120px;height:23px;">
+ 					<option value= "en"style="color:#white;background-color:#66ccff;"> Inglés
+  					<option value= "zh"style="color:#white;background-color:#66ccff;"> Mandarín
+  					<option value= "hi"style="color:#white;background-color:#66ccff;"> Hindú
+  					<option value= "es"style="color:#white;background-color:#66ccff;"> Español
+  					<option value= "ar"style="color:#white;background-color:#66ccff;"> Árabe
+		 			<option value= "fr"style="color:#white;background-color:#66ccff;"> Francés
+					<option value= "ms"style="color:#white;background-color:#66ccff;"> Malayo
+					<option value= "ru"style="color:#white;background-color:#66ccff;"> Ruso
+					<option value= "bn"style="color:#white;background-color:#66ccff;"> Bengalí
+ 					<option value= "pt"style="color:#white;background-color:#66ccff;"> Portugués
+					<option value= "ja"style="color:#white;background-color:#66ccff;"> Japonés
+					<option value= "de"style="color:#white;background-color:#66ccff;"> Alemán
+					<option value= "pa"style="color:#white;background-color:#66ccff;"> Punjabi
+					<option value= "it"style="color:#white;background-color:#66ccff;"> Italiano
+					<option value= "sv"style="color:#white;background-color:#66ccff;"> Sueco
+					<option value= "vi"style="color:#white;background-color:#66ccff;"> Vietnamita
+					<option value= "he"style="color:#white;background-color:#66ccff;"> Hebreo
+ 				<select>
+			</div>
+			</div>
+			<!-- Traduccion del Subtitulo de la Pagina -->
+			<div id="google_translate_element" class="google">
+			</div>
+		</div>
+		<script type="text/javascript">
+			function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: '', includedLanguages: 'en,zh,hi,es,ar,fr,ms,ru,bn,pt,ja,de,pa,it,sv,vi,he', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+       		 	}
+		</script>
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<!-- Opentok -->
+		<script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>
+		<!-- Sesión -->
+		<script type="text/javascript">
+			var apiKey = '<?=API_Config::API_KEY?>';
+			var sessionId = '<?=$sessionId?>';
+			var token = '<?=$token?>';
+			TB.setLogLevel(TB.DEBUG);
+			var session = TB.initSession(sessionId);
+			session.addEventListener('sessionConnected', sessionConnectedHandler);
+			session.addEventListener('streamCreated', streamCreatedHandler);
+			session.connect(apiKey, token);
+			var publisher;
+			function sessionConnectedHandler(event) {
+				var publishProps = {height:120, width:161};	
+				publisher = TB.initPublisher(apiKey, 'TokVideoStreamUsuario', publishProps);
+				session.publish(publisher);
+				subscribeToStreams(event.streams);
+			}
+			function streamCreatedHandler(event) {
+				subscribeToStreams(event.streams);
+			}
+			function subscribeToStreams(streams) {
+				for (var i = 0; i < streams.length; i++) {
+					if (streams[i].connection.connectionId == session.connection.connectionId) {
+						return;
+					}
+					var divid = 'stream' + streams[i].streamId;
+					$("#TokVideoStreamOtrosUsuarios").html("<div id='stream"+streams[i].streamId+"'></div>");
+					var publishProps = {height:361, width:482};
+					session.subscribe(streams[i], divid);
+				}
+			}
+		</script>
+		<!-- Como me ven a mi otros usuarios -->
+		<div id="TokVideoStreamUsuario"></div>
+		<br/><br/>
+		<!-- Vista de otros usuarios -->
+		<div id="TokVideoStreamOtrosUsuarios"></div>
+
+	<!-- Subtitulo-->
+	<div id="texto"> 
+	Ésta es una prueba, cuando yo esté dando la conferencia
+	</div>
+	<!-- Traduccion a Voz del Subtitulo -->
+	<input type= "button" id="hablar" value="Oir Traducción">
+	<input type= "button" id="pausar" value="Pausar">
+	<div id="Pantalla"> 
+		hola, 
+		bienvenidos a mi página traducirda a cualquier idioma
+	</div>
+	<div class="comentarios">
+		<input type= "text" id="texto2">
+		<input type= "button" id="enviar" value="Enviar Comentarios">
+	</div>
+		<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>				
+	<script src="JavaConferencia.js"> </script>
+
+
+</body>
+
+</html>

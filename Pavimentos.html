@@ -1,0 +1,350 @@
+<?php
+	session_start();
+	$varsession= $_SESSION['nickname'];
+	if($varsession== null || $varsession=''){ 
+		echo 'Usted no tiene autorizacion';
+		die();
+	}
+?>
+<!DOCTYPE html>
+<Html lang="es">
+	<head>
+		<title> Team Tower </title>
+		<link rel= "stylesheet" type= "text/css" href="css/Estilo_Pavimento.css">
+		<meta charset= "UFT-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	<Script>
+	function calcularsuelo(){
+		var PI = LL- PL;
+		if (F200> 35){
+			if(LL< 40){
+				if(PI< 11){
+					TipoSuelo = "A-4, Suelo Limoso, Subrasante Regular a Pobre";
+				}else{				
+					TipoSuelo = "A-6, Suelo Arcilloso, Subrasante Regular a Pobre";
+				}
+			}else{
+				if(PI< 11){
+					TipoSuelo = "A-5, Suelo Limoso, Subrasante Regular a Pobre";
+				}else{		
+					if(PI< LL-30){
+						TipoSuelo = "A-7-5, Suelo Arcilloso, Subrasante Regular a Pobre";
+					}else{
+						TipoSuelo = "A-7-6, Suelo Arcilloso, Subrasante Regular a Pobre";
+					}	
+				}
+			}
+		}else{
+			if(LL<40){
+				if(PI=0){
+					if (F200<11){
+						if (F40>50){
+							TipoSuelo = "A-3, Arena Fina, Subrasante Excelente a Buena";
+						}
+					}
+				}else{
+					if(PI<7){
+						if (F200<26){
+							if (F40<51){
+								TipoSuelo = "A-1-b, Fragmentos de Roca, grava y arena, Subrasante Excelente a Buena";
+							}
+						}					
+						if (F200<16){
+							if (F40<31){
+								if (F10<51){
+									TipoSuelo = "A-1-a, Fragmentos de Roca, grava y arena, Subrasante Excelente a Buena";
+								}
+							}
+						}
+					}else{
+						if(PI< 11){
+							TipoSuelo = "A-2-4, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena";
+						}else{				
+							TipoSuelo = "A-2-6, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena";
+						}
+					}
+				}
+			}else{
+				if(PI<11){
+					TipoSuelo = "A-2-5, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena";
+				}else{		
+					TipoSuelo = "A-2-7, Grava y Arena Limosa o arcillosa, Subrasante Excelente a Buena";	
+				}
+			}
+		}
+			
+		if(TipoSuelo= "A-2-6"  || TipoSuelo= "A-2-7"){
+			GI = 0,01*(F200-15)*(PI-10);
+		}else{
+				GI= (F200-35)*(0,2 + 0,005*(LL-40))+0,01*(F200-15)*(PI-10);
+		}
+		alert ("TipoSuelo"); 
+		alert ("GI");
+	}
+	</Script>
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<div class="logoimagen" style="background-image: url(images/iconos/logo3.png)">
+				</div>
+				<div class="logoimagenb" style="background-image: url(images/iconos/logo3a.png)">
+				</div>
+				<div class="descripcion">
+					<h3></h3>
+					<h5></h5>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="asistencia" style="background-image: url(images/iconos/icono17a.png)" onclick="location.href='asistencia.html';" style= "cursor:pointer;">
+				</div>
+				<div class="configuracion" style="background-image: url(images/iconos/icono18a.png)" onclick="location.href='configuracion.html';" style= "cursor:pointer;">
+				</div>
+				<div class="AvisoLatam">
+					<div class= "avatar" style="background-image: url(images/iconos/icono19a.png)"  onclick="location.href='perfil.html';" style= "cursor:pointer;">
+					</div>
+					<div class= "bienvenida">
+						<p> Bienvenido <?php echo $_SESSION['nickname'] ?> </p>
+						<a href= "cerrarsesion.php"> Cerrar sesion </a>
+					</div>
+				</div>			
+			</div>
+		</header>
+		<div class="Suelos">
+			<form class= "suelo" action="materiales.php" method=Post>
+			<fieldset>			
+				<legend> Datos Referenciales </legend>
+						
+					<h6><div class= "MRSuelo">
+						<table class= "MR_calidad_suelo">
+						<caption>Modulo Resilente segun calidad relativa del Suelo</caption>
+							<tr><th>Clima/Suelo-</th><th>Muy Pobre-</th><th>Pobre-</th><th>Regular-</th><th>Bueno-</th><th>Muy Bueno</th></tr>
+							<tr><td>Lluvioso</td><td>MR 2500psi</td><td>MR 3300psi</td><td>MR 4500psi</td><td>MR 6000psi</td><td>MR 8000psi</td></tr>				
+							<tr><td>Pluvio-Nubloso</td><td>MR 3250psi</td><td>MR 4100psi</td><td>MR 5500psi</td><td>MR 8000psi</td><td>MR 14000psi</td></tr>
+							<tr><td>Seco</td><td>MR 4000psi</td><td>MR 4900psi</td><td>MR 6500psi</td><td>MR 10000psi</td><td>MR 20000psi</td></tr>
+						</table>
+					</div><br>
+					<div class= "CBRSuelo">
+						<table class= "CBR_calidad_suelo">
+						<caption>CBR segun calidad relativa del Suelo</caption>
+							<tr><th>Clima/Suelo-</th><th>Muy Pobre-</th><th>Pobre-</th><th>Regular-</th><th>Bueno-</th><th>Muy Bueno</th></tr>
+							<tr><td>Lluvioso</td><td>CBR 1,7%</td><td>CBR 2,2%</td><td>CBR 3,0%</td><td>CBR 4,0%</td><td>CBR 5,3%</td></tr>				
+							<tr><td>Pluvio-Nubloso</td><td>CBR 2,1%</td><td>CBR 2,7%</td><td>CBR 3,7%</td><td>CBR 5,4%</td><td>CBR 10,6%</td></tr>
+							<tr><td>Seco</td><td>CBR 2,7%</td><td>CBR 3,3%</td><td>CBR 4,3%</td><td>CBR 6,7%</td><td>CBR 18,5%</td></tr>
+						</table>
+					</div></h6>
+			</fieldset>
+			<fieldset>
+					<legend> Suelos y Materiales Granulares </legend>
+					<h5><td> Ubicacion
+					<select type="text" name="ubicación" style= "width:100px; height:21px">
+										<option> Venezuela </option>
+										<option> Colombia </option>
+										<option> Peru </option>
+										<option> Ecuador </option>
+										<option> Chile </option>
+										<option> Uruguay </option>
+										<option> Paraguay </option>
+										<option> Argentina <option>
+										<option> Bolivia <option>
+										<option> Brasil <option>
+					</select>
+					Zona Climatica
+					<select type="text" name="zonaclimatica" style= "width:350px; height:21px">
+										<option> Zona I (meses secos:2,humedos:2,saturados:8) </option>
+										<option> Zona II(meses secos:6,humedos:4,saturados:2) </option>
+										<option> Zona III(meses secos:3,humedos:3,saturados:6) </option>
+										<option> Zona IV (meses secos:4,humedos:4,saturados:4) </option>
+										<option> Zona V (meses secos:6,humedos:2,saturados:4) </option>
+										<option> Zona VI (meses secos:5,5,humedos:3,saturados:3,5) </option>
+										<option> Zona VII (meses secos:6,humedos:3,saturados:3) </option>
+										<option> Zona VIII(meses secos:7,humedos:3,saturados:2) <option>
+										<option> Zona IX (meses secos:10,humedos:1,5,saturados:0,5) <option>
+										<option> Zona X (meses secos:7,humedos:4,saturados:1) <option>
+										<option> Zona XI (meses secos:5,humedos:5,saturados:2) <option>
+										<option> Zona XII (meses secos:12,humedos:0,saturados:0) <option>
+					</select> </td> <br><br></h5> 
+					<h5> <td> Granulometria
+					<input type="text" size="10" name="F10" placeholder="%PasaMalla#10" required> <input type="text" size="10" name="F40" placeholder= "%PasaMalla#40" required> <input type="text" size="10" name="F200" placeholder= "%PasaMall#200" required> <input type="text" size="8" name="LL" placeholder= "Limite Liquido" required> <input type="text" size="8" name="PL" placeholder= "Limite Plastico" required> </td> <br>
+					<td> Tipo de Suelo
+					<select type="text" name="tiposuelo" style= "width:250px; height:21px">
+										<option> A-1-a (CBR 38-80) Muy Bueno </option>
+										<option> A-1b  (CBR 20-60) Muy Bueno </option>
+										<option> A-2-4 (CBR 26-80) Muy Bueno </option>
+										<option> A-2-5 (CBR 26-80) Muy Bueno </option>
+										<option> A-2-6 (CBR  9-30) Muy Bueno </option>
+										<option> A-2-7 (CBR  9-30) Muy Bueno </option>
+										<option> A-3   (CBR 10-30) Muy Bueno <option>
+										<option> A-4   (CBR  3-25) Regular-Muy Bueno </option>
+										<option> A-6   (CBR  2-14) Muy Malo-Bueno </option>
+										<option> A-7-5 (CBR  2-14) Muy Malo-Bueno </option>
+										<option> A-7-6 (CBR  2-14) Muy Malo-Bueno </option>
+										<option> A-5   (CBR  2-14) Muy Malo-Bueno </option>
+					</select> </td> <br>					
+					<select type="text" name="materialcomun" style= "width:250px; height:21px">
+										<option> Material mas comun </option>
+										<option> Fragmentos de roca, grava y arena</option>
+										<option> Arena Fina </option>
+										<option> Grava y arena limosa o arcillosa </option>
+										<option> Principalmente suelo Limoso </option>
+										<option> Principalmente suelo arcilloso </option>					
+					</select></td><br>
+					<h5> Valores Disponibles </h5> 
+					<td> <input type="text" size="11" name="messat" placeholder= "Meses Saturados" required> <input type="text" size="11" name="cbrsat" placeholder= "CBR saturado" required> <input type="text" size="11" name="VRsat" placeholder= "Valor-R saturado" required> <input type="text" size="11" name="TTCSat" placeholder= "Tx Triaxial Saturado" required> <input type="text" size="11" name="SOPSat" placeholder= "Soporte Saturado" required> <input type="text" size="11" name="MRsat" placeholder= "MR Saturado" required> </td><br>
+					<td> <input type="text" size="11" name="meshum" placeholder= "Meses Humedos " required> <input type="text" size="11" name="cbrhum" placeholder= "CBR humedo" required> <input type="text" size="11" name="VRhum" placeholder= "Valor-R humedo" required>  <input type="text" size="11" name="TTCHum" placeholder= "Tx Triaxial Humedo" required> <input type="text" size="11" name="SOPShum" placeholder= "Soporte Humedo" required>  <input type="text" size="11" name="MRhum" placeholder= "MR Humedo" required></td><br>
+					<td> <input type="text" size="11" name="messec" placeholder= "Meses Secos" required> <input type="text" size="11" name="cbrsec" placeholder= "CBR seco" required> <input type="text" size="11" name="VRsec" placeholder= "Valor-R seco" required>  <input type="text" size="11" name="TTCSec" placeholder= "Tx Triaxial Seco" required> <input type="text" size="11" name="SOPsec" placeholder= "Soporte Seco" required> <input type="text" size="11" name="MRsec" placeholder= "MR Seco" required></td><br><br>
+					<h5> Metodo de Transformacion</h5> 
+					<td><Label> <input type="radio" name="opcion" value="CBRHK" style="width:30px;height:20px;background-color:;"> CBR Heukelom y Klomp </Label>
+							<Label> <input type="radio" name="opcion" value="VRIA" style="width:30px;height:20px;background-color:;"> Valor-R Instituto Asfalto </Label>
+							<Label> <input type="radio" name="opcion" value="CBRK" style="width:30px;height:20px;background-color:;"> CBR Kentucky </Label> <br>
+							<Label> <input type="radio" name="opcion" value="VRC" style="width:30px;height:20px;background-color:;"> Valor-R California </Label>
+							<Label> <input type="radio" name="opcion" value="VRW" style="width:30px;height:20px;background-color:;"> Valor-R Washington </Label>
+							<Label> <input type="radio" name="opcion" value="TTC" style="width:30px;height:20px;background-color:;"> Texas Triaxial </Label>
+							<Label> <input type="radio" name="opcion" value="MR" style="width:30px;height:20px;background-color:;"> Módulo Resilente </Label> </td> <br><br>
+					<td> <h5> Valores Ponderados </h5></td> 
+					<td> <button type="button" onclick="calcularsuelo()"> Calcular </button>
+					<input type="text" size="11" name="CBR" placeholder= "CBR ponderado" required> <input type="text" size="11" name="VR"placeholder= "Valor-R ponderado" required> <input type="text" size="11" name="TT" placeholder= "Tex Triaxial ponderado" required> <input type="text" size="11" name="MR" placeholder= "MR ponderado" required> </td><br><br>	
+					<td><input type="submit" size="10px" class="boton" name="Fundacion" value="Anadir Fundacion"> 	<input type="submit" size="10px" class="boton" name="Base" value="Anadir Base">  	<input type="submit" size="10px" class="boton" name="SubBase" value="Anadir Sub Base"></td>
+				</fieldset>
+	
+
+			</form>
+		El módulo resiliente MR: pavimento flexible.
+		Valor del Soporte del Suelo Si (ya no se usa), es sustituido por MR.
+		MR a partir del CBR, del Valor-R
+		tipos de suelos:	saturados y	densidades
+		El módulo de reaccion K:  pavimento rigidos o compuestos.
+		<div class="SeccionVehiculos">
+		<form class= "Transito" action="ProyectoTransito.php" method=Post>
+		
+						<select type="text" name="tipopavimento" style= "width:100px; height:21px">
+										<option> Tipo de Pavimento </option>
+										<option> Pavimentos Flexible con Base y Subbase </option>
+										<option> Pavimentos Rigido sin Acero de Refuerzo y Dowels </option>
+										<option> Pavimentos Rigidos con Acero de Refuerzo y Dowels </option>
+							</select> </td> <br>
+						<td> <Label> Número Estructural SN <Label>
+							<select type="text" name="SN" style= "width:90px; height:21px">
+								<option> 1 </option>
+								<option> 2 </option>
+								<option> 3 </option>
+								<option> 4 </option>
+								<option> 5 </option>
+								<option> 6 </option>
+							</select> </td> <br>
+							<td> <Label> Serviciabilidad Final <Label>
+							<select type="text" name="PS" style= "width:90px; height:21px">
+								<option> 2,0 </option>
+								<option> 2,5 </option>
+								<option> 3,0 </option>
+							</select> </td> <br>
+						<td> <Label> Tipo de Vehiculo <Label>
+							<select type="text" name="tipovehiculo" style= "width:90px; height:21px; placeholder= "Sexo" required >
+								<option> C2 </option>
+								<option> C3 </option>
+								<option> C4 </option>
+								<option> T2-S1</option>
+								<option> T2-S2</option>
+								<option> T3-S1 </option>
+								<option> T3-S2 </option>
+								<option> T3-S3 </option>
+								<option> T2-S3 </option>
+								<option> C2-R2 </option>
+								<option> T2-S1-R2 </option>
+								<option> Otro </option>
+							</select> </td>
+							<fieldset>
+								<legend> Eje 1 </legend>
+								<td><input type="text" size="7" name="carga" placeholder= "Carga Ton" required>
+									<select type="text" name="tipoeje" style= "width:100px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Eje </option>
+										<option> Eje Simple </option>
+										<option> Eje Tandem </option>
+										<option> Eje Tridem </option>
+									</select> 
+									<select type="text" name="tipocaucho" style= "width:120px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Caucho </option>
+										<option> Caucho Simple </option>
+										<option> Caucho Doble </option>
+									</select> 
+									<input type="text" size="7" name="fceje" placeholder= "FcEje" required></td>			
+							</fieldset>
+							<fieldset>
+								<legend> Eje 2 </legend>
+								<td><input type="text" size="7" name="carga" placeholder= "Carga Ton" required>
+									<select type="text" name="tipoeje" style= "width:100px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Eje </option>
+										<option> Eje Simple </option>
+										<option> Eje Tandem </option>
+										<option> Eje Tridem </option>
+									</select> 
+									<select type="text" name="tipocaucho" style= "width:120px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Caucho </option>
+										<option> Caucho Simple </option>
+										<option> Caucho Doble </option>
+									</select> 
+									<input type="text" size="7" name="fceje" placeholder= "FcEje" required></td>
+							</fieldset>
+							<fieldset>
+								<legend> Eje 3 </legend>
+								<td><input type="text" size="7" name="carga" placeholder= "Carga Ton" required>
+									<select type="text" name="tipoeje" style= "width:100px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Eje </option>
+										<option> Eje Simple </option>
+										<option> Eje Tandem </option>
+										<option> Eje Tridem </option>
+									</select> 
+									<select type="text" name="tipocaucho" style= "width:120px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Caucho </option>
+										<option> Caucho Simple </option>
+										<option> Caucho Doble </option>
+									</select>  
+									<input type="text" size="7" name="fceje" placeholder= "FcEje" required></td>
+							</fieldset>
+							<fieldset>
+								<legend> Eje 4 </legend>
+								<td><input type="text" size="7" name="carga" placeholder= "Carga Ton" required>
+									<select type="text" name="tipoeje" style= "width:100px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Eje </option>
+										<option> Eje Simple </option>
+										<option> Eje Tandem </option>
+										<option> Eje Tridem </option>
+									</select> 
+									<select type="text" name="tipocaucho" style= "width:120px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Caucho </option>
+										<option> Caucho Simple </option>
+										<option> Caucho Doble </option>
+									</select>
+									<input type="text" size="7" name="fceje" placeholder= "FcEje" required></td>
+							</fieldset>
+							<fieldset>
+								<legend> Eje 5 </legend>
+								<td><input type="text" size="7" name="carga" placeholder= "Carga Ton" required>
+									<select type="text" name="tipoeje" style= "width:100px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Eje </option>
+										<option> Eje Simple </option>
+										<option> Eje Tandem </option>
+										<option> Eje Tridem </option>
+									</select> 
+									<select type="text" name="tipocaucho" style= "width:120px; height:21px; placeholder= "Sexo" required >
+										<option> Tipo de Caucho </option>
+										<option> Caucho Simple </option>
+										<option> Caucho Doble </option>
+									</select>
+									<input type="text" size="7" name="fceje" placeholder= "FcEje" required></td>
+							</fieldset>
+				<td> <input type="text" name="Fcamion" placeholder= "Fcamion" required></td><br>
+				<td><input type="submit" size="20px" class="boton" name="FC" value="Importar"> 
+				<input type="submit" size="20px" class="boton" name="FC" value="Calcular FC"></td>
+				<td> <input type="text" name="nombrevehiculo" placeholder= "Nombre de Vehiculo" required>
+				<input type="text" name="NroRepeticiones" placeholder= "Número de Repeticiones" required>
+				<input type="submit" size="20px" class="boton" name="FC" value="Añadir"></td>
+
+		</form>
+		</div>
+
+		
+	
+	</body>
+</html>
